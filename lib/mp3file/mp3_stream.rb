@@ -1,6 +1,6 @@
 require 'iobuffer'
 
-module Mp3stream
+module Mp3file
     class InvalidMP3StreamError < Mp3fileError; end
 
     class MP3Stream
