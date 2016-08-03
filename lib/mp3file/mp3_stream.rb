@@ -4,8 +4,8 @@ module Mp3file
     class InvalidMP3StreamError < Mp3fileError; end
 
     class MP3Stream
-        attr_reader (:layer, :bitrate, :samplerate, :mode, :frame_headers, :xing_header)
-        attr_reader (:first_header_offset, :mpeg_version, :first_header, :buffer)
+        attr_reader(:layer, :bitrate, :samplerate, :mode, :frame_headers, :xing_header)
+        attr_reader(:first_header_offset, :mpeg_version, :first_header, :buffer)
 
         def initialize(initial_data)
             @buffer = IO::Buffer.new
@@ -123,7 +123,7 @@ module Mp3file
     
           @skipped_bytes += header_offset - initial_header_offset
           if @skipped_bytes > 2048
-            raise InvalidMP3FileError, "Had to skip > 2048 bytes in between headers."
+            raise InvalidMP3StreamError, "Had to skip > 2048 bytes in between headers."
           end
     
           # if initial_header_offset != header_offset
@@ -133,3 +133,4 @@ module Mp3file
           [ header_offset, header ]
         end
     end
+end
