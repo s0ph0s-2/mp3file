@@ -5,7 +5,12 @@ module Mp3stream
 
     class MP3Stream
         attr_reader (:layer, :bitrate, :samplerate, :mode, :frame_headers, :xing_header)
-        attr_reader (:first_header_offset, :mpeg_version, :first_header)
+        attr_reader (:first_header_offset, :mpeg_version, :first_header, :buffer)
+
+        def initialize(initial_data)
+            @buffer = IO::Buffer.new
+            @buffer << initial_data
+        end
 
         def start_stream_parse
             @skipped_bytes = 0
