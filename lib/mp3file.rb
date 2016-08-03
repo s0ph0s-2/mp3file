@@ -8,6 +8,7 @@ module Mp3file
 end
 
 require 'mp3file/mp3_file'
+require 'mp3file/mp3_stream'
 require 'mp3file/mp3_header'
 require 'mp3file/xing_header'
 require 'mp3file/id3v1_tag'
